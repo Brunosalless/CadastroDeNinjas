@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController // um controlador para API rest - ira mapear o arquivo
 @RequestMapping // anda junto com a RestController -serve para colocar todas as outras rodas no mesmo lugar
-public class Controller {
+public class NinjaController {
 
 
     @GetMapping("/boasVindas") // pega informações
