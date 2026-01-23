@@ -2,6 +2,9 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -9,6 +12,9 @@ import java.util.List;
 @Entity // com o Entity minha classe vira uma entidade do BD
 @Table(name = "tb_cadastro") // com o @Entity se criou uma tabela com o @Table coloca um nome na tabela
 // JPA - java persistence API
+@NoArgsConstructor // -> cria um construtor vazio
+@AllArgsConstructor // -> cria todos os construtores desta aplicação
+@Data // -> cria todos os getters e setters automaticamente
 public class NinjasModel {
 
     @Id // por isso e necessario passar esta anotação
@@ -26,42 +32,9 @@ public class NinjasModel {
     // Foreing Key ou chave estrangeira - se no @OneToMany e necessario mapear, com o JoinColumn ira juntar as duas colunas e isso ira criar outra coluna no banco de dados
     // toda vez que clicar na chave estrange missoes_id ira pegar informaçoes das duas tabelas
     @JoinColumn(name = "missoes_id")
-    private List<MissoesModel> missoes; // nova coluna da tabela
+    private List<MissoesModel> missoes;
 
 
 
-    public NinjasModel() {
-    }
 
-    public NinjasModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
-
-
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
 }

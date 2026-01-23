@@ -2,9 +2,15 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjasModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity // rudo o que esta abaixo ate ter um colchete ou ponto e virgula e uma entidade
 @Table (name = "tb_Missoes")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissoesModel {
 
     // relacionamento entre tabelas uma missao pode ter varios ninjas mais um ninja pode ter apenas uma missao por vez
