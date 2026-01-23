@@ -23,6 +23,7 @@ public class NinjasModel {
 
     private String nome;
 
+    @Column(unique = true) // -> esta coluna sera unica não tera nenhum outro com o mesmo email
     private String email;
 
     private int idade;
