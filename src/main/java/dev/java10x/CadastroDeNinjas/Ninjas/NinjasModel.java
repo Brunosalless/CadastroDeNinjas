@@ -20,13 +20,19 @@ public class NinjasModel {
 
     @Id // por isso e necessario passar esta anotação
     @GeneratedValue(strategy = GenerationType.IDENTITY) // para complementar dever ser passodo uma, estrategia de como vai ser ultilizado este ID com o @GeneratedValues]
+    @Column(name = "Id")
     private Long id; // algo que apenas e declarado, pois o java ja coloca o id automaticamente apenas sendo necessario passar como deve ser feito
 
+    @Column(name = "Nome")
     private String nome;
 
     @Column(unique = true) // -> esta coluna sera unica não tera nenhum outro com o mesmo email
     private String email;
 
+    @Column(name = "Img_url")
+    private String imgUrl;
+
+    @Column(name = "Idade")
     private int idade;
 
     //@ManyToOne - Um ninja tem uma unica missao
