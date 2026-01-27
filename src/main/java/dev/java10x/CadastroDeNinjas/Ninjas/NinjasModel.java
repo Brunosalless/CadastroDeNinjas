@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
 public class NinjasModel {
 
     @Id // por isso e necessario passar esta anotação
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // para complementar dever ser passodo uma, estrategia de como vai ser ultilizado este ID com o @GeneratedValues
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // para complementar dever ser passodo uma, estrategia de como vai ser ultilizado este ID com o @GeneratedValues]
     private Long id; // algo que apenas e declarado, pois o java ja coloca o id automaticamente apenas sendo necessario passar como deve ser feito
 
     private String nome;
@@ -34,6 +35,7 @@ public class NinjasModel {
     // toda vez que clicar na chave estrange missoes_id ira pegar informaçoes das duas tabelas
     @JoinColumn(name = "missoes_id")
     private List<MissoesModel> missoes;
+
 
 
 
