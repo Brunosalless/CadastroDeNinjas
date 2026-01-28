@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity // rudo o que esta abaixo ate ter um colchete ou ponto e virgula e uma entidade
 @Table (name = "tb_Missoes")
 @NoArgsConstructor
@@ -25,6 +27,6 @@ public class MissoesModel {
 
    // @OneToMany - uma missao pode ter varios ninjas
     @OneToMany(mappedBy = "missoes") // toda vez que realizar um relacionamento entre duas tabelas e necessario mappear e conectar atraves de uma chave estrangeira
-    private NinjasModel ninja;
+    private List<NinjasModel> ninjas;
 
 }

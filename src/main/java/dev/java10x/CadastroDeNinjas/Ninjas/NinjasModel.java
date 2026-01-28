@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -40,7 +39,7 @@ public class NinjasModel {
     // Foreing Key ou chave estrangeira - se no @OneToMany e necessario mapear, com o JoinColumn ira juntar as duas colunas e isso ira criar outra coluna no banco de dados
     // toda vez que clicar na chave estrange missoes_id ira pegar informaçoes das duas tabelas
     @JoinColumn(name = "missoes_id")
-    private List<MissoesModel> missoes;
+    private MissoesModel missoes;
 
 
 

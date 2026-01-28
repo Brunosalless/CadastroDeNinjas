@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class MissoesController {
 
-    @GetMapping
-    public String MissoesDosNinjas(){
-
-        return "Nenhuma missao cadastrada";
+    @GetMapping("/missoesDosNinjas")
+    public String missoesDosNinjas(){
+        return "Ainda nao tem nenhuma missao aqui";
     }
+
 
 }
