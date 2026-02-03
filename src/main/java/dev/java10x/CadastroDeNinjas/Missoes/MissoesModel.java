@@ -23,7 +23,7 @@ public class MissoesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
-    private String difuldade;
+    private String dificuldade;
 
    // @OneToMany - uma missao pode ter varios ninjas
     @OneToMany(mappedBy = "missoes") // toda vez que realizar um relacionamento entre duas tabelas e necessario mappear e conectar atraves de uma chave estrangeira

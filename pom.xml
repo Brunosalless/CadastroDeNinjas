@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.java10x</groupId>
-	<artifactId>CadastroDeUsuarios</artifactId>
+	<artifactId>CadastroDeNinjas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CadastroDeNinjas</name>
 	<description>Uma API para cadastro de ninjas</description>
@@ -59,6 +59,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-h2console</artifactId>
 			<version>4.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-flyway</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
