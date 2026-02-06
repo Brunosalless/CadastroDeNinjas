@@ -3,15 +3,8 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // um controlador para API rest - ira mapear o arquivo
-@RequestMapping // anda junto com a RestController -serve para colocar todas as outras rodas no mesmo lugar
+@RequestMapping("/ninjas") // anda junto com a RestController -serve para colocar todas as outras rodas no mesmo lugar
 public class NinjaController {
-
-
-    @GetMapping("/boasVindas") // pega informações
-    public String boasVindas(){
-        return "Essa e minha primeira mensagem nessa rota";
-    }
-    // todos que acessarem a minha rota ira ver esta mensagem
 
     // Adicionar ninja (CREATE)
     @PostMapping("/criar")
@@ -20,13 +13,13 @@ public class NinjaController {
     }
 
     // Mostrar todos os Ninja (READ)
-    @GetMapping("/TodosNinjas")
+    @GetMapping("/listar")
     public String MostrarTodosNinjas(){
         return "Mostrar todos os Ninjas";
     }
 
     // Mostrar Ninjas por ID (READ)
-    @GetMapping("/TodosID")
+    @GetMapping("/listarID")
     public String MostrarNinjasPorID(){
         return "Mostrar Ninjas Por ID";
     }
