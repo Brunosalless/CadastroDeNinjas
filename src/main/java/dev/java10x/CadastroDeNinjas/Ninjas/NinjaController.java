@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
+import jdk.jfr.ContentType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,13 +16,13 @@ public class NinjaController {
     }
 
     // Adicionar ninja (CREATE)
-    @PostMapping("/criar")
-    public String criarNinja(){
-        return "Ninja criado";
+    @PostMapping("/criar") // o post faz uma serialização inversa de Json para o banco e salva os dados
+    public NinjasModel criarNinjas(@RequestBody NinjasModel ninja){
+        return ninjaService.CriarNinja(ninja);
     }
 
     // Mostrar todos os Ninja (READ)
-    @GetMapping("/listar")
+    @GetMapping("/listar") // puxa do banco de dados e joga em forma de Json
     public List<NinjasModel> listarNinjas(){
         return ninjaService.ListarNinjas();
     }

@@ -14,14 +14,22 @@ public class NinjaService {
         this.ninjaRepository = ninjaRepository;
     }
 
-    //Logica para listar todos os ninjas
+    // Logica para listar todos os ninjas
     public List<NinjasModel> ListarNinjas(){
         return ninjaRepository.findAll(); // lista todos os dados que tem no db
     }
 
-    //Listas todos os ninjas por ID
+    // Listas todos os ninjas por ID
     public NinjasModel ListarNinjasID(Long id){
         Optional<NinjasModel> ninjaPorID = ninjaRepository.findById(id);
         return ninjaPorID.orElse(null); // caso o ninjas nao exista
     }
+
+    // criar um novo ninja
+    public NinjasModel CriarNinja(NinjasModel ninja){
+        return ninjaRepository.save(ninja);
+    }
+
+
+
 }
