@@ -2,20 +2,33 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("missoes")
 public class MissoesController {
+    private MissoesService missoesService;
 
-    // get-- manda um requisiçao para mostrar as missoes
-    @GetMapping("/listar")
-    public String ListarMissoes(){
-        return "Missoes listadas com sucesso";
+    public MissoesController(MissoesService missoesService) {
+        this.missoesService = missoesService;
     }
 
-    // post-- mandar uma requisiçao para criar as missoes
+    // get-- manda um requisiçao para mostrar as missoes (READ)
+    @GetMapping("/listar")
+    public List<MissoesModel> ListarMissoes(){
+        return missoesService.ListarMissoes();
+    }
+
+    // (READ)
+    @GetMapping("/listar/{id}")
+    public MissoesModel ListarMissoesID(@PathVariable Long id){
+        return missoesService.ListarMissoesPorID(id);
+    }
+
+    // post-- mandar uma requisiçao para criar as missoes (CREATE)
     @PostMapping("/criar")
-    public String criarMisooes(){
-        return "Ainda nao tem nenhuma missao aqui";
+    public MissoesModel criarMisooes(@RequestBody MissoesModel missoes){
+        return missoesService.CriarMissao(missoes);
     }
 
     // put-- manda uma requisiçao para alterar a missao
@@ -24,10 +37,10 @@ public class MissoesController {
         return "Missao alterada com sucesso";
     }
 
-    //delete-- serve para deletar uma missao
-    @DeleteMapping("/deletar")
-    public String deletarMissao(){
-        return "Missao deletada com sucesso";
+    //delete-- serve para deletar uma missao (DELETE)
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissao(@PathVariable Long id){
+        missoesService.DeletarMissaoID(id);
     }
 
 
