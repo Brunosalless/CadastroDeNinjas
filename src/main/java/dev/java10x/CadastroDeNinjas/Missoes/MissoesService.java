@@ -28,13 +28,22 @@ public class MissoesService {
         return MissoesID.orElse(null); // realizar a verificação caso nao aja nenhuma missao cadastrada
     }
 
-    // criar um ninja
+    // criar uma missao
     public MissoesModel CriarMissao(MissoesModel missoes){
         return missoesRepositoty.save(missoes);
     }
 
-    // deletar um ninja
+    // deletar uma missao
     public void DeletarMissaoID(Long id){
         missoesRepositoty.deleteById(id);
+    }
+
+    //atualizar missoes
+    public MissoesModel AtualizarMissaoPorID(Long id, MissoesModel missaoAtualizado){
+        if (missoesRepositoty.existsById(id)){
+            missaoAtualizado.setId(id);// Esse objeto pertence ao ID que já existe no banco
+            return missoesRepositoty.save(missaoAtualizado);
+        }
+        return null;
     }
 }

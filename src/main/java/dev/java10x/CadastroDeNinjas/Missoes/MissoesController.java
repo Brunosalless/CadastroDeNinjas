@@ -32,9 +32,9 @@ public class MissoesController {
     }
 
     // put-- manda uma requisiçao para alterar a missao
-    @PutMapping("/alterar")
-    public String alterarMissao(){
-        return "Missao alterada com sucesso";
+    @PutMapping("/alterar/{id}")
+    public MissoesModel alterarMissao(@PathVariable Long id, @RequestBody MissoesModel missoesAtualizado){
+        return missoesService.AtualizarMissaoPorID(id, missoesAtualizado);
     }
 
     //delete-- serve para deletar uma missao (DELETE)
