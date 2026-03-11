@@ -11,14 +11,15 @@ public class NinjaController {
 
     private NinjaService ninjaService;
 
+
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
     }
 
     // Adicionar ninja (CREATE)
     @PostMapping("/criar") // o post faz uma serialização inversa de Json para o banco e salva os dados
-    public NinjasModel criarNinjas(@RequestBody NinjasModel ninja){
-        return ninjaService.CriarNinja(ninja);
+    public NinjasDTO criarNinjas(@RequestBody NinjasDTO ninjas){
+        return ninjaService.CriarNinja(ninjas);
     }
 
     // Mostrar todos os Ninja (READ)
