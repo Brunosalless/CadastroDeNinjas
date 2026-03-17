@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 // para trabalhar com banco de dados e necessario baixar uma dependencia chamada Springjpa no initializr para ultilizar uma anotação chamada @Entity
 @Entity // com o Entity minha classe vira uma entidade do BD
 @Table(name = "tb_cadastro") // com o @Entity se criou uma tabela com o @Table coloca um nome na tabela
