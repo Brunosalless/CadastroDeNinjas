@@ -11,14 +11,15 @@ public class NinjaController {
 
     private NinjaService ninjaService;
 
+
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
     }
 
     // Adicionar ninja (CREATE)
     @PostMapping("/criar") // o post faz uma serialização inversa de Json para o banco e salva os dados
-    public NinjasModel criarNinjas(@RequestBody NinjasModel ninja){
-        return ninjaService.CriarNinja(ninja);
+    public NinjasDTO criarNinjas(@RequestBody NinjasDTO ninjas){
+        return ninjaService.CriarNinja(ninjas);
     }
 
     // Mostrar todos os Ninja (READ)
@@ -33,9 +34,9 @@ public class NinjaController {
         return ninjaService.ListarNinjasID(id);
     }
 
-    // Alterar dados dos ninjas (UPDATE)
+    // Atualizar dados dos ninjas (UPDATE)
     @PutMapping("/alterar/{id}")
-    public NinjasModel AlterarNinjasPorID(@PathVariable Long id, @RequestBody NinjasModel ninjaAtualizado){
+    public NinjasModel AtualizarNinjasPorID(@PathVariable Long id, @RequestBody NinjasModel ninjaAtualizado){
         return ninjaService.AtualizarNinja(id, ninjaAtualizado);
     }
 

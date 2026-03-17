@@ -34,6 +34,9 @@ public class NinjasModel {
     @Column(name = "Idade")
     private int idade;
 
+    @Column(name = "rank")
+    private String rank; // e importante que faça a alteraçao no model apenas dps de criar a migrantion e o dto caso contrario nao mexer no model apos ter criado o banco de dados
+
     //@ManyToOne - Um ninja tem uma unica missao
     @ManyToOne
     // Foreing Key ou chave estrangeira - se no @OneToMany e necessario mapear, com o JoinColumn ira juntar as duas colunas e isso ira criar outra coluna no banco de dados
