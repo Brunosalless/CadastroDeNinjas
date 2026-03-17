@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service // por ser uma camada de serviço
 public class NinjaService {
@@ -17,18 +16,15 @@ public class NinjaService {
         this.ninjaMapper = ninjaMapper;
     }
 
-    // Logica para, listar todos os ninjas
-    public List<NinjasDTO> ListarNinjas(){
-         List<NinjasModel> ninjas = ninjaRepository.findAll(); //lista todos os dados que tem no db
-        return ninjas.stream()   //stream() = transforma sua lista em uma sequência processável, permitindo usar operações como map, filter, collect para transformar dados de forma elegante.
-                .map(ninjaMapper::map)   // converte o NinjasModel para Ninjas DTO
-                .collect(Collectors.toList());  // pega o resultado que está passando pelo Stream e transforma de volta em uma Lista (List).
+    // Logica para listar todos os ninjas
+    public List<NinjasModel> ListarNinjas(){
+        return ninjaRepository.findAll(); // lista todos os dados que tem no db
     }
 
     // Listas todos os ninjas por ID
-    public NinjasDTO ListarNinjasID(Long id){
+    public NinjasModel ListarNinjasID(Long id){
         Optional<NinjasModel> ninjaPorID = ninjaRepository.findById(id);
-        return  ninjaPorID.map(ninjaMapper::map).orElse(null);   // caso o ninjas nao exista
+        return ninjaPorID.orElse(null); // caso o ninjas nao exista
     }
 
     // criar um novo ninja
@@ -44,22 +40,6 @@ public class NinjaService {
     }
 
     // atualizar um ninja
-
-    public NinjasDTO AtualizarNinja(Long id, NinjasDTO ninjasDTO){
-        Optional<NinjasModel> ninjaexistente = ninjaRepository.findById(id); // procura pelo id
-        if (ninjaexistente.isPresent()) { // se o id existir entao
-            NinjasModel ninjaAtualizado =ninjaMapper.map(ninjasDTO); // realiza o mapper do DTO
-            ninjaAtualizado.setId(id); // sobreescreve o id
-            NinjasModel ninjaSalvo = ninjaRepository.save(ninjaAtualizado); // salva os dados atulizado do ninja
-            return ninjaMapper.map(ninjaSalvo); // retorna o ninja salvo
-        }
-        return null; // caso nao aja nenhum id
-    }
-
-
-
-    /*
-    metodos sem o dto(antigo)
     public NinjasModel AtualizarNinja(Long id, NinjasModel ninjaAtualizado){
         if (ninjaRepository.existsById(id)){
             ninjaAtualizado.setId(id);
@@ -67,7 +47,7 @@ public class NinjaService {
         }
         return null;
     }
-    */
+
 
 
 }

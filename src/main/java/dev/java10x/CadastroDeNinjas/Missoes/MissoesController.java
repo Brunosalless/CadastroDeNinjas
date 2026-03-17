@@ -15,25 +15,25 @@ public class MissoesController {
 
     // get-- manda um requisiçao para mostrar as missoes (READ)
     @GetMapping("/listar")
-    public List<MissoesModel> ListarMissoes(){
+    public List<MissoesDTO> ListarMissoes(){
         return missoesService.ListarMissoes();
     }
 
     // (READ)
     @GetMapping("/listar/{id}")
-    public MissoesModel ListarMissoesID(@PathVariable Long id){
+    public MissoesDTO ListarMissoesID(@PathVariable Long id){
         return missoesService.ListarMissoesPorID(id);
     }
 
     // post-- mandar uma requisiçao para criar as missoes (CREATE)
     @PostMapping("/criar")
-    public MissoesModel criarMisooes(@RequestBody MissoesModel missoes){
+    public MissoesDTO criarMisooes(@RequestBody MissoesDTO missoes){
         return missoesService.CriarMissao(missoes);
     }
 
     // put-- manda uma requisiçao para alterar a missao
     @PutMapping("/alterar/{id}")
-    public MissoesModel alterarMissao(@PathVariable Long id, @RequestBody MissoesModel missoesAtualizado){
+    public MissoesDTO alterarMissao(@PathVariable Long id, @RequestBody MissoesDTO missoesAtualizado){
         return missoesService.AtualizarMissaoPorID(id, missoesAtualizado);
     }
 
