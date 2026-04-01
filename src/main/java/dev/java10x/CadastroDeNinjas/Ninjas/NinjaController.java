@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/ninjas") // anda junto com a RestController -serve para colocar todas as outras rodas no mesmo lugar
 public class NinjaController {
 
-    private NinjaService ninjaService;
+    private final NinjaService ninjaService;
 
 
     public NinjaController(NinjaService ninjaService) {
